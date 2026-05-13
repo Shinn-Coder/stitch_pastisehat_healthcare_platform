@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed": "#e1e0ff",
+                        "background": "#f7f9fb",
+                        "on-secondary-container": "#fffbff",
+                        "secondary": "#4648d4",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-secondary-fixed-variant": "#2f2ebe",
+                        "outline": "#747688",
+                        "on-tertiary": "#ffffff",
+                        "surface-tint": "#124af0",
+                        "on-surface": "#191c1e",
+                        "on-primary-fixed": "#001356",
+                        "error": "#ba1a1a",
+                        "surface-dim": "#d8dadc",
+                        "on-primary-fixed-variant": "#0035be",
+                        "tertiary-container": "#765ac5",
+                        "on-tertiary-fixed": "#21005e",
+                        "secondary-container": "#6063ee",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "surface-container-highest": "#e0e3e5",
+                        "tertiary-fixed": "#e8ddff",
+                        "on-primary-container": "#efefff",
+                        "primary-fixed": "#dde1ff",
+                        "surface-container-low": "#f2f4f6",
+                        "surface-bright": "#f7f9fb",
+                        "tertiary-fixed-dim": "#cebdff",
+                        "tertiary": "#5d41ab",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#4f319c",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-container": "#f5edff",
+                        "surface-variant": "#e0e3e5",
+                        "inverse-surface": "#2d3133",
+                        "inverse-primary": "#b8c3ff",
+                        "on-surface-variant": "#434656",
+                        "primary-container": "#2e5bff",
+                        "surface": "#f7f9fb",
+                        "outline-variant": "#c4c5d9",
+                        "on-error-container": "#93000a",
+                        "surface-container": "#eceef0",
+                        "secondary-fixed-dim": "#c0c1ff",
+                        "primary-fixed-dim": "#b8c3ff",
+                        "on-secondary-fixed": "#07006c",
+                        "surface-container-high": "#e6e8ea",
+                        "primary": "#0040e0",
+                        "on-background": "#191c1e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "unit": "8px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "64px",
+                        "container-max": "1280px",
+                        "margin-tablet": "32px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Manrope"],
+                        "label-bold": ["Manrope"],
+                        "headline-lg-mobile": ["Space Grotesk"],
+                        "display-lg": ["Space Grotesk"],
+                        "body-md": ["Manrope"],
+                        "headline-md": ["Space Grotesk"],
+                        "headline-lg": ["Space Grotesk"],
+                        "body-lg": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "label-bold": ["14px", {"lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
+        }
+        .inner-glow {
+            box-shadow: inset 1px 1px 0px rgba(255, 255, 255, 0.4);
+        }
+        .gradient-btn {
+            background: linear-gradient(135deg, #2e5bff 0%, #4648d4 100%);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md">
+<div class="flex min-h-screen">
+<!-- SideNavBar Component -->
+<aside class="hidden lg:flex flex-col h-screen sticky top-0 p-gutter bg-surface-container-low dark:bg-surface-dim shadow-sm w-64 shrink-0">
+<div class="mb-10">
+<h1 class="text-headline-md font-headline-md font-bold text-primary">PastiSehat</h1>
+<p class="text-label-sm font-label-sm text-outline">RS Louis Surabaya</p>
+</div>
+<nav class="flex-grow space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+                    Dashboard
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">smart_toy</span>
+                    Tanya Cici
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 bg-secondary-container text-on-secondary-container rounded-lg font-bold font-label-md text-label-md scale-[0.98] transition-all" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">history</span>
+                    Riwayat
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">medical_services</span>
+                    Apotek
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">help</span>
+                    Bantuan
+                </a>
+</nav>
+<div class="mt-auto space-y-2 pt-6 border-t border-outline-variant">
+<button class="gradient-btn w-full py-3 px-4 rounded-xl text-white font-label-bold text-label-bold flex items-center justify-center gap-2 mb-6">
+                    Booking Sekarang
+                </button>
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">settings</span>
+                    Pengaturan
+                </a>
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined text-error">logout</span>
+                    Keluar
+                </a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-grow flex flex-col min-w-0">
+<!-- TopNavBar Component -->
+<header class="bg-surface dark:bg-inverse-surface border-b border-outline-variant sticky top-0 z-50">
+<div class="flex justify-between items-center w-full px-gutter max-w-container-max mx-auto h-16">
+<div class="flex items-center gap-8">
+<span class="text-headline-md font-headline-lg font-bold text-primary lg:hidden">PastiSehat</span>
+<div class="hidden md:flex gap-6 items-center">
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#">Dashboard</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#">Booking</a>
+<a class="text-primary border-b-2 border-primary font-bold pb-1 font-label-md text-label-md" href="#">Riwayat</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#">Apotek</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-surface-container-low rounded-full transition-all text-on-surface-variant">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="h-8 w-8 rounded-full overflow-hidden border border-outline-variant">
+<img alt="User profile avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA13TqsMi-Vo0Q5FMXhKkine0z2gThe6aK_HKJkJu8Y4pkeel7Hjy_gBqi4K3E5RGr1n9Gecwbq-zf3KPxCY-p2YwJXVInV-wK06Yg2sF34g_YVhanG8aI8rmepBFhadD6GMOgo6K1cdQXaAi2Ng2dTr58PfcWBamAl5KAH3Q1LvNlH_ll0wu7q10UgYlDk7K5UcXXALS_8wLJhRInSe4w8qgS8DuF3OndmjUCZaICJ8ZOK3B8WOtWpi8mQ4bAFgfaiw8Vbg6-TscVW"/>
+</div>
+</div>
+</div>
+</header>
+<div class="max-w-container-max mx-auto w-full p-gutter space-y-8">
+<!-- Page Header -->
+<section class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Riwayat Konsultasi</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Kelola jadwal konsultasi video dan kunjungan klinik Anda secara efisien.</p>
+</div>
+<div class="flex gap-3">
+<button class="px-6 py-2.5 rounded-xl border border-outline-variant font-label-bold text-label-bold hover:bg-surface-container-low transition-all">Filter</button>
+<button class="px-6 py-2.5 rounded-xl bg-primary text-white font-label-bold text-label-bold shadow-sm hover:opacity-90 transition-all">Export Report</button>
+</div>
+</section>
+<!-- Bento Grid Layout for Consultations -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+<!-- Main Active Consultation Card -->
+<div class="lg:col-span-2 space-y-gutter">
+<div class="glass-card rounded-[24px] p-8 relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-6">
+<span class="bg-primary-container text-on-primary-container px-4 py-1.5 rounded-full font-label-bold text-label-sm flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                                    Mulai dalam 15 Menit
+                                </span>
+</div>
+<div class="flex flex-col md:flex-row gap-6 items-start md:items-center">
+<div class="w-24 h-24 rounded-[20px] overflow-hidden bg-surface-container-highest">
+<img alt="Dr. Sarah Johnson" class="w-full h-full object-cover" data-alt="A professional medical headshot of a female doctor with a kind expression, wearing a crisp white laboratory coat and a stethoscope. The background is a brightly lit, high-end modern clinic with soft blue and white tones, creating a sterile yet welcoming advanced medical atmosphere in a clean light-mode UI style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDl3kMCeWPH8t5kLqS7u4Abq37uQq9ywSMigMfj87TWKLOFrU0DDrSsOvBrxHWUHE4KXq1EUNnk4d3WtCYfcb31R4r1K5psG0GPd4_u9mh0kmIODUyUHreNjXC4UtJ9J1bCvtub1P5XOX_pekE5mgXH06YnIHr3NWRji0WOgpuyjMiqOiZoCkB6HopXytR9eXwS2rEC_UOmboQjV2Ti3hjgfo0p8euuypJ0fwHpQ6MUWheJ27lsqQeKm6zckBvKgGAEOJ_ERyMOG8m3"/>
+</div>
+<div>
+<p class="font-label-bold text-label-bold text-primary mb-1">Konsultasi Mendatang</p>
+<h3 class="font-headline-md text-headline-md text-on-surface">Dr. Sarah Johnson, Ph.D.</h3>
+<p class="text-on-surface-variant font-body-md">Spesialis Kardiologi &amp; Genetika Terapan</p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8 py-6 border-y border-outline-variant/30">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary bg-primary/10 p-2 rounded-lg">calendar_today</span>
+<div>
+<p class="text-label-sm font-label-sm text-outline">Tanggal</p>
+<p class="font-label-bold text-label-bold">24 Okt 2024</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary bg-primary/10 p-2 rounded-lg">schedule</span>
+<div>
+<p class="text-label-sm font-label-sm text-outline">Waktu</p>
+<p class="font-label-bold text-label-bold">14:00 - 14:30 WIB</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary bg-primary/10 p-2 rounded-lg">videocam</span>
+<div>
+<p class="text-label-sm font-label-sm text-outline">Metode</p>
+<p class="font-label-bold text-label-bold">Video Call HD</p>
+</div>
+</div>
+</div>
+<div class="mt-8 flex flex-col sm:flex-row gap-4">
+<button class="gradient-btn px-8 py-3.5 rounded-xl text-white font-label-bold text-label-bold flex-1 flex items-center justify-center gap-2 hover:opacity-90 transition-all active:scale-95 shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined">video_call</span>
+                                    Gabung Video Call
+                                </button>
+<button class="px-8 py-3.5 rounded-xl border border-outline-variant font-label-bold text-label-bold hover:bg-surface-container-high transition-all">
+                                    Ubah Jadwal
+                                </button>
+</div>
+</div>
+<!-- Past Consultations Table-like Glass List -->
+<div class="glass-card rounded-[24px] overflow-hidden">
+<div class="px-8 py-6 border-b border-outline-variant/30 flex justify-between items-center">
+<h4 class="font-headline-md text-headline-md text-on-surface">Riwayat Terakhir</h4>
+<button class="text-primary font-label-bold text-label-bold hover:underline">Lihat Semua</button>
+</div>
+<div class="divide-y divide-outline-variant/20">
+<!-- Item 1 -->
+<div class="px-8 py-6 flex flex-col md:flex-row md:items-center gap-6 hover:bg-surface-container-low transition-colors group">
+<div class="flex items-center gap-4 flex-1">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-surface-container-highest">
+<img alt="Dr. Marcus" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuATRq5lcAMe5MNHAZb9uTvPLXvDakzFofkGflKM5yjfEZbk-TiGxVEJhczk57MwOxR0wqisBIO58pZN5qwkvuPPxrOORUih3bstmzGpHgIUDsVV6afPbqfOvGEOaLpxJ9Wrjw3JzQY6yv_rpbsE-xKMk91xmQyZX_Bdewyy4Keoa3BObPkAkvTno35nZUfg7G8v2Qpw2LLYeoKK1gR5Rk_lc8BSAkCSJq0ax3rgTAj2fKIF7TQoZFJLtQ4zsz_x9GgMScf3muHfKg1D"/>
+</div>
+<div>
+<p class="font-label-bold text-label-bold text-on-surface">Dr. Marcus Welby</p>
+<p class="text-label-sm text-outline">Spesialis Penyakit Dalam • 15 Okt</p>
+</div>
+</div>
+<div class="flex items-center gap-2 sm:gap-4 shrink-0">
+<span class="px-3 py-1 bg-surface-container-high text-on-surface-variant rounded-full text-label-sm font-label-bold">Selesai</span>
+<button class="p-2 text-primary hover:bg-primary/10 rounded-lg transition-all" title="View Prescription">
+<span class="material-symbols-outlined">prescriptions</span>
+</button>
+<button class="p-2 text-primary hover:bg-primary/10 rounded-lg transition-all" title="Download Report">
+<span class="material-symbols-outlined">download</span>
+</button>
+<span class="material-symbols-outlined text-outline group-hover:translate-x-1 transition-transform">chevron_right</span>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="px-8 py-6 flex flex-col md:flex-row md:items-center gap-6 hover:bg-surface-container-low transition-colors group">
+<div class="flex items-center gap-4 flex-1">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-surface-container-highest">
+<img alt="Dr. Elena" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3eYI5aIZOowX_Ss2U_nDY895Rw8hg68RBg3KA9H22YpHU0TuFbICIQZJxi1ECMcdsbVW49XrGFmHlCHg2JAjxztppzJIMOVazdQVNr31_2aNfh7tLcjRCsTcf6ld2c9Dr6wKvXb5aqYmsUW4NDw9bkGnrVkmsXOR1Ky0K4Vr7s3kFibFOdwhnI_iRWDzNCGaD54frTuUO8N2VGA_j3MhnLQTm8bl-da8sgeQR-YzZG-mj2buYSKouhldoNKRDpnMgw_JbZJR8GXwJ"/>
+</div>
+<div>
+<p class="font-label-bold text-label-bold text-on-surface">Dr. Elena Rodriguez</p>
+<p class="text-label-sm text-outline">Dermatologis • 02 Okt</p>
+</div>
+</div>
+<div class="flex items-center gap-2 sm:gap-4 shrink-0">
+<span class="px-3 py-1 bg-surface-container-high text-on-surface-variant rounded-full text-label-sm font-label-bold">Selesai</span>
+<button class="p-2 text-primary hover:bg-primary/10 rounded-lg transition-all" title="View Prescription">
+<span class="material-symbols-outlined">prescriptions</span>
+</button>
+<button class="p-2 text-primary hover:bg-primary/10 rounded-lg transition-all" title="Download Report">
+<span class="material-symbols-outlined">download</span>
+</button>
+<span class="material-symbols-outlined text-outline group-hover:translate-x-1 transition-transform">chevron_right</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Sidebar Stats & Quick Links -->
+<div class="space-y-gutter">
+<!-- Summary Card -->
+<div class="glass-card rounded-[24px] p-6 space-y-6">
+<h4 class="font-headline-md text-headline-md text-on-surface">Statistik Anda</h4>
+<div class="grid grid-cols-2 gap-4">
+<div class="p-4 bg-surface-container rounded-2xl">
+<p class="text-label-sm text-outline mb-1">Bulan Ini</p>
+<p class="text-headline-md font-bold text-primary">04</p>
+<p class="text-[10px] text-on-surface-variant">Sesi Selesai</p>
+</div>
+<div class="p-4 bg-surface-container rounded-2xl">
+<p class="text-label-sm text-outline mb-1">Total</p>
+<p class="text-headline-md font-bold text-secondary">28</p>
+<p class="text-[10px] text-on-surface-variant">Sepanjang Tahun</p>
+</div>
+</div>
+<div class="p-4 bg-tertiary-fixed-dim/20 rounded-2xl border border-tertiary-fixed flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-tertiary flex items-center justify-center text-white shrink-0">
+<span class="material-symbols-outlined text-[20px]">verified</span>
+</div>
+<div>
+<p class="font-label-bold text-label-sm text-on-tertiary-fixed-variant">Member Premium</p>
+<p class="text-[10px] text-on-tertiary-fixed">Konsultasi tanpa batas diaktifkan</p>
+</div>
+</div>
+</div>
+<!-- Prescription Ad/Quick Link -->
+<div class="bg-inverse-surface rounded-[24px] p-6 text-white relative overflow-hidden">
+<div class="relative z-10">
+<h4 class="font-headline-md text-headline-md mb-2">E-Resep Digital</h4>
+<p class="text-label-sm opacity-80 mb-6">Tebus obat langsung dari aplikasi dengan pengantaran cepat ke rumah.</p>
+<button class="w-full py-3 bg-white text-inverse-surface rounded-xl font-label-bold text-label-bold flex items-center justify-center gap-2 hover:bg-surface-variant transition-all">
+                                    Tebus Sekarang
+                                    <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+<!-- Abstract decoration -->
+<div class="absolute -right-8 -bottom-8 w-32 h-32 bg-primary/20 rounded-full blur-3xl"></div>
+</div>
+<!-- Doctor Recommendations -->
+<div class="glass-card rounded-[24px] p-6 space-y-4">
+<h4 class="font-label-bold text-label-bold text-on-surface">Dokter Favorit Anda</h4>
+<div class="space-y-4">
+<div class="flex items-center gap-4">
+<img alt="Dr. David" class="w-10 h-10 rounded-full bg-surface-container" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBH_TvJwCatHMaLKEa7nj2evrZ6qm80Ea0G5isPZ9vyXlHL3FxyK1QfIFAAFlQYj3RU4A9B2BNDbV53TBHMz5F-VIYx75iXIJEdsx73XXdQIzICx41Y7gNywXMOjvxpm0R8UmjaZJfBlWrPOXcKXf5kksAICEUGgNurQb7HWMEIXXCmghSfOItTufeXUabvm_FL5YOpEotV9VwABZMkymCZm5rdc9v0qNgZQMJfFjZK6rFUcdLv1JCG8jCWewMrfo3C6XckU1AV6Xph"/>
+<div class="flex-grow">
+<p class="font-label-bold text-label-sm">Dr. David Chen</p>
+<p class="text-[10px] text-outline">Onkologi</p>
+</div>
+<button class="text-primary text-label-sm font-bold">Book</button>
+</div>
+<div class="flex items-center gap-4">
+<img alt="Dr. Siti" class="w-10 h-10 rounded-full bg-surface-container" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCshOF5mPjSSLg_Qka8B3XSIzeIHTDfSn_8_2uHN46yOtFRzkCspCQKREF2v5SvqWXWoBTFdHx02uWvjVfVW3CdY18JJWppyGb7J4KqudKA6OiwzlvugYruvlI4I0VvR0axBGzmS23NIFLWrIHrMlrQ01A66CnsbewMzyqGCKVTLUf0U9S3sUJD7W9CR_tzkmy3-qec-MKm7304acORUWew56_CvqOHzkv0UxXjRf4p4p0lLEIEDmTFeX1KOqu1ZNfwQvKRPtIXzLaL"/>
+<div class="flex-grow">
+<p class="font-label-bold text-label-sm">Dr. Siti Aminah</p>
+<p class="text-[10px] text-outline">Nutrisi &amp; Dietetik</p>
+</div>
+<button class="text-primary text-label-sm font-bold">Book</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Component -->
+<footer class="w-full py-xl px-gutter flex flex-col md:flex-row justify-between items-center gap-md bg-surface-container-highest dark:bg-inverse-surface border-t border-outline-variant mt-auto">
+<div class="flex flex-col md:items-start items-center gap-2">
+<span class="text-label-md font-bold text-primary">PastiSehat</span>
+<p class="font-body-md text-body-md text-on-surface-variant opacity-70">© 2024 RS Louis Surabaya. Terakreditasi KARS.</p>
+</div>
+<div class="flex gap-6">
+<a class="text-on-surface-variant hover:underline font-body-md text-body-md" href="#">Kebijakan Privasi</a>
+<a class="text-on-surface-variant hover:underline font-body-md text-body-md" href="#">Syarat &amp; Ketentuan</a>
+<a class="text-on-surface-variant hover:underline font-body-md text-body-md" href="#">Pusat Bantuan</a>
+</div>
+</footer>
+</main>
+</div>
+<!-- Mobile Navigation (Bottom Bar) -->
+<nav class="lg:hidden fixed bottom-0 left-0 right-0 bg-surface border-t border-outline-variant z-50 flex justify-around items-center h-16 px-4">
+<a class="flex flex-col items-center gap-1 text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px] font-label-sm">Home</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary font-bold" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">history</span>
+<span class="text-[10px] font-label-sm">Riwayat</span>
+</a>
+<div class="relative -top-6">
+<button class="w-14 h-14 rounded-full gradient-btn shadow-lg shadow-primary/40 flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-[32px]">add</span>
+</button>
+</div>
+<a class="flex flex-col items-center gap-1 text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">medical_services</span>
+<span class="text-[10px] font-label-sm">Apotek</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">account_circle</span>
+<span class="text-[10px] font-label-sm">Profil</span>
+</a>
+</nav>
+</body></html>

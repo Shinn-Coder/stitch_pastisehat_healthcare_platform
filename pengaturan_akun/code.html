@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;family=Space+Grotesk:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed": "#e1e0ff",
+                    "background": "#f7f9fb",
+                    "on-secondary-container": "#fffbff",
+                    "secondary": "#4648d4",
+                    "inverse-on-surface": "#eff1f3",
+                    "on-secondary-fixed-variant": "#2f2ebe",
+                    "outline": "#747688",
+                    "on-tertiary": "#ffffff",
+                    "surface-tint": "#124af0",
+                    "on-surface": "#191c1e",
+                    "on-primary-fixed": "#001356",
+                    "error": "#ba1a1a",
+                    "surface-dim": "#d8dadc",
+                    "on-primary-fixed-variant": "#0035be",
+                    "tertiary-container": "#765ac5",
+                    "on-tertiary-fixed": "#21005e",
+                    "secondary-container": "#6063ee",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "surface-container-highest": "#e0e3e5",
+                    "tertiary-fixed": "#e8ddff",
+                    "on-primary-container": "#efefff",
+                    "primary-fixed": "#dde1ff",
+                    "surface-container-low": "#f2f4f6",
+                    "surface-bright": "#f7f9fb",
+                    "tertiary-fixed-dim": "#cebdff",
+                    "tertiary": "#5d41ab",
+                    "on-primary": "#ffffff",
+                    "on-tertiary-fixed-variant": "#4f319c",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-container": "#f5edff",
+                    "surface-variant": "#e0e3e5",
+                    "inverse-surface": "#2d3133",
+                    "inverse-primary": "#b8c3ff",
+                    "on-surface-variant": "#434656",
+                    "primary-container": "#2e5bff",
+                    "surface": "#f7f9fb",
+                    "outline-variant": "#c4c5d9",
+                    "on-error-container": "#93000a",
+                    "surface-container": "#eceef0",
+                    "secondary-fixed-dim": "#c0c1ff",
+                    "primary-fixed-dim": "#b8c3ff",
+                    "on-secondary-fixed": "#07006c",
+                    "surface-container-high": "#e6e8ea",
+                    "primary": "#0040e0",
+                    "on-background": "#191c1e"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "unit": "8px",
+                    "margin-mobile": "16px",
+                    "margin-desktop": "64px",
+                    "container-max": "1280px",
+                    "margin-tablet": "32px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Manrope"],
+                    "label-bold": ["Manrope"],
+                    "headline-lg-mobile": ["Space Grotesk"],
+                    "display-lg": ["Space Grotesk"],
+                    "body-md": ["Manrope"],
+                    "headline-md": ["Space Grotesk"],
+                    "headline-lg": ["Space Grotesk"],
+                    "body-lg": ["Manrope"]
+            },
+            "fontSize": {
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "label-bold": ["14px", {"lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(226, 232, 240, 0.6);
+            box-shadow: 0 4px 20px -2px rgba(30, 27, 75, 0.05);
+        }
+        .inner-glow {
+            box-shadow: inset 1px 1px 0px 0px rgba(255, 255, 255, 0.4);
+        }
+        .gradient-btn {
+            background: linear-gradient(135deg, #2e5bff 0%, #4648d4 100%);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen flex">
+<!-- SideNavBar (Shared Component) -->
+<aside class="hidden lg:flex flex-col h-screen sticky top-0 p-gutter bg-surface-container-low dark:bg-surface-dim shadow-sm w-64 shrink-0">
+<div class="mb-gutter flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">medical_services</span>
+</div>
+<div>
+<h1 class="text-headline-md font-headline-md font-bold text-primary">PastiSehat</h1>
+<p class="text-label-sm text-on-surface-variant">RS Louis Surabaya</p>
+</div>
+</div>
+<nav class="flex-1 space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-high rounded-lg transition-colors group" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-high rounded-lg transition-colors group" href="#">
+<span class="material-symbols-outlined">smart_toy</span>
+<span class="font-label-md text-label-md">Tanya Cici</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-high rounded-lg transition-colors group" href="#">
+<span class="material-symbols-outlined">history</span>
+<span class="font-label-md text-label-md">Riwayat</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-high rounded-lg transition-colors group" href="#">
+<span class="material-symbols-outlined">medical_services</span>
+<span class="font-label-md text-label-md">Apotek</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-high rounded-lg transition-colors group" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-label-md text-label-md">Bantuan</span>
+</a>
+</nav>
+<div class="mt-auto space-y-2 pt-gutter">
+<a class="bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-lg font-bold flex items-center gap-3 px-4 py-3 scale-[0.98] transition-all" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">settings</span>
+<span class="font-label-md text-label-md">Pengaturan</span>
+</a>
+<button class="w-full flex items-center gap-3 px-4 py-3 text-error hover:bg-error-container/20 rounded-lg transition-colors">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-label-md text-label-md">Keluar</span>
+</button>
+</div>
+</aside>
+<main class="flex-1 w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin-desktop py-gutter">
+<!-- Header -->
+<header class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-gutter">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Pengaturan</h2>
+<p class="text-body-md text-on-surface-variant mt-1">Kelola data profil, keamanan, dan preferensi akun Anda.</p>
+</div>
+<div class="flex items-center gap-4 bg-surface-container-low p-2 pr-6 rounded-full glass-panel">
+<img alt="User Profile" class="w-10 h-10 rounded-full object-cover" data-alt="A professional medical researcher with short hair and modern glasses, dressed in a clean white lab coat, smiling confidently in a bright, futuristic laboratory setting. High-key lighting with soft blue and white tones reflects a high-tech medical environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmQoHw2LFQWjXykhEYopKaPngeJTlI-UsrYxupGob2ejd3FkJy45z6jnThGWVThwLwWnLSP9kN6Iwhj47P2sENrq_y41r-RQAYxvGnHiM631KmuG47CwJtkdqU3RS8x5sQpt7M17KBaccyX9_cKVcqbj92RknL1xh3LumzkCUhaf4BH7kUqIW6mZ67G0jcGDCEdDkKn8f8eJ5oRJhHmkXSsTowq_x2Px2gwmFlmF8NP8ztwPyERvKQRsXWn_W9p4pCK_8RMAj6-ex1"/>
+<div>
+<p class="font-label-bold text-label-bold text-on-surface">Dr. Aris Setiawan</p>
+<p class="text-label-sm text-on-surface-variant">ID: PS-99281</p>
+</div>
+</div>
+</header>
+<!-- Bento Grid Layout for Settings -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Category Selector (Mobile Taps / Desktop Sidebar Sub-nav) -->
+<section class="lg:col-span-3 space-y-2">
+<div class="glass-panel rounded-2xl p-2 inner-glow">
+<button class="w-full flex items-center gap-3 px-4 py-3 bg-primary-container text-on-primary-container rounded-xl font-label-bold">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">person</span>
+                        Profile Info
+                    </button>
+<button class="w-full flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high rounded-xl transition-all">
+<span class="material-symbols-outlined">security</span>
+                        Security &amp; Password
+                    </button>
+<button class="w-full flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high rounded-xl transition-all">
+<span class="material-symbols-outlined">notifications</span>
+                        Notification Preferences
+                    </button>
+<button class="w-full flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high rounded-xl transition-all">
+<span class="material-symbols-outlined">language</span>
+                        Language
+                    </button>
+</div>
+</section>
+<!-- Main Settings Canvas -->
+<section class="lg:col-span-9 space-y-gutter">
+<!-- Profile Section -->
+<div class="glass-panel rounded-3xl p-8 inner-glow">
+<div class="flex items-center justify-between mb-8">
+<h3 class="font-headline-md text-headline-md">Profile Info</h3>
+<button class="gradient-btn text-on-primary px-6 py-2 rounded-full font-label-bold text-label-bold hover:opacity-90 transition-opacity">Simpan Perubahan</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="font-label-bold text-label-bold text-on-surface-variant ml-1">Nama Lengkap</label>
+<input class="w-full bg-surface-container-low border-transparent focus:border-primary focus:bg-surface-container-lowest focus:ring-0 rounded-xl px-4 py-3 transition-all" type="text" value="Dr. Aris Setiawan, M.Biotech"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-bold text-label-bold text-on-surface-variant ml-1">Email Klinis</label>
+<input class="w-full bg-surface-container-low border-transparent focus:border-primary focus:bg-surface-container-lowest focus:ring-0 rounded-xl px-4 py-3 transition-all" type="email" value="aris.setiawan@rslouis.id"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-bold text-label-bold text-on-surface-variant ml-1">Nomor Telepon</label>
+<input class="w-full bg-surface-container-low border-transparent focus:border-primary focus:bg-surface-container-lowest focus:ring-0 rounded-xl px-4 py-3 transition-all" type="tel" value="+62 812 3456 7890"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-bold text-label-bold text-on-surface-variant ml-1">Spesialisasi</label>
+<select class="w-full bg-surface-container-low border-transparent focus:border-primary focus:bg-surface-container-lowest focus:ring-0 rounded-xl px-4 py-3 transition-all">
+<option>Genomic Sequencing</option>
+<option>Clinical Biotech</option>
+<option>General Practitioner</option>
+</select>
+</div>
+</div>
+</div>
+<!-- Bento Grid Content -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Emergency Contact -->
+<div class="glass-panel rounded-3xl p-8 inner-glow border-l-4 border-error">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-error" style="font-variation-settings: 'FILL' 1;">emergency</span>
+<h3 class="font-headline-md text-headline-md">Emergency Contact</h3>
+</div>
+<div class="space-y-4">
+<div class="p-4 bg-error-container/10 rounded-2xl border border-error/10">
+<p class="font-label-bold text-on-surface">Maria Setiawan (Istri)</p>
+<p class="text-body-md text-on-surface-variant">+62 812 9999 8888</p>
+</div>
+<button class="w-full py-3 border-2 border-dashed border-outline-variant text-on-surface-variant rounded-2xl hover:bg-surface-container-low transition-colors font-label-bold flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[20px]">add</span>
+                                Tambah Kontak Darurat
+                            </button>
+</div>
+</div>
+<!-- Security Overview -->
+<div class="glass-panel rounded-3xl p-8 inner-glow bg-gradient-to-br from-white to-secondary-fixed/10">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<h3 class="font-headline-md text-headline-md">Security</h3>
+</div>
+<ul class="space-y-4">
+<li class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">passkey</span>
+<span class="text-body-md">Two-Factor Auth</span>
+</div>
+<div class="w-10 h-6 bg-primary rounded-full relative cursor-pointer">
+<div class="absolute right-1 top-1 w-4 h-4 bg-white rounded-full"></div>
+</div>
+</li>
+<li class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">history_edu</span>
+<span class="text-body-md">Sesi Aktif</span>
+</div>
+<span class="text-label-bold text-primary">3 Perangkat</span>
+</li>
+</ul>
+<button class="mt-8 w-full py-3 bg-surface-container-highest text-on-surface-variant rounded-2xl font-label-bold hover:bg-surface-container-high transition-colors">Ubah Kata Sandi</button>
+</div>
+</div>
+<!-- Bottom Tier: Preferences -->
+<div class="glass-panel rounded-3xl p-8 inner-glow">
+<h3 class="font-headline-md text-headline-md mb-6">Notification &amp; Localization</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+<div class="space-y-4">
+<p class="font-label-bold text-primary uppercase tracking-wider text-xs">Pemberitahuan</p>
+<label class="flex items-center gap-4 cursor-pointer">
+<input checked="" class="w-5 h-5 text-primary border-outline-variant rounded-md focus:ring-primary" type="checkbox"/>
+<span class="text-body-md">Hasil Laboratorium (Email &amp; App)</span>
+</label>
+<label class="flex items-center gap-4 cursor-pointer">
+<input checked="" class="w-5 h-5 text-primary border-outline-variant rounded-md focus:ring-primary" type="checkbox"/>
+<span class="text-body-md">Pengingat Jadwal Janji Temu</span>
+</label>
+<label class="flex items-center gap-4 cursor-pointer">
+<input class="w-5 h-5 text-primary border-outline-variant rounded-md focus:ring-primary" type="checkbox"/>
+<span class="text-body-md">Promo &amp; Artikel Kesehatan</span>
+</label>
+</div>
+<div class="space-y-4">
+<p class="font-label-bold text-primary uppercase tracking-wider text-xs">Bahasa &amp; Regional</p>
+<div class="space-y-2">
+<label class="text-label-sm text-on-surface-variant">Bahasa Tampilan</label>
+<select class="w-full bg-surface-container-low border-transparent focus:border-primary rounded-xl px-4 py-2">
+<option>Bahasa Indonesia (ID)</option>
+<option>English (US)</option>
+<option>Japanese (JP)</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="text-label-sm text-on-surface-variant">Zona Waktu</label>
+<p class="text-body-md font-medium">Jakarta, Indonesia (GMT+7)</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Footer (Shared Component) -->
+<footer class="mt-gutter w-full py-xl flex flex-col md:flex-row justify-between items-center gap-md border-t border-outline-variant bg-surface-container-highest dark:bg-inverse-surface rounded-t-3xl px-gutter">
+<div class="space-y-2 text-center md:text-left">
+<p class="text-label-md font-bold text-primary">PastiSehat</p>
+<p class="text-body-md text-on-surface-variant dark:text-outline-variant">© 2024 RS Louis Surabaya. Terakreditasi KARS.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-6">
+<a class="text-on-surface-variant dark:text-outline-variant hover:underline font-body-md" href="#">Kebijakan Privasi</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:underline font-body-md" href="#">Syarat &amp; Ketentuan</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:underline font-body-md" href="#">Pusat Bantuan</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:underline font-body-md" href="#">Kontak Kami</a>
+</div>
+</footer>
+</main>
+</body></html>

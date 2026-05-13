@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PastiSehat - Tanya Cici AI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed": "#21005e",
+                        "secondary-container": "#6063ee",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#d8dadc",
+                        "on-primary-fixed-variant": "#0035be",
+                        "tertiary-container": "#765ac5",
+                        "on-primary-container": "#efefff",
+                        "primary-fixed": "#dde1ff",
+                        "on-error": "#ffffff",
+                        "surface-container-highest": "#e0e3e5",
+                        "tertiary-fixed": "#e8ddff",
+                        "secondary": "#4648d4",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-secondary-fixed-variant": "#2f2ebe",
+                        "outline": "#747688",
+                        "secondary-fixed": "#e1e0ff",
+                        "background": "#f7f9fb",
+                        "on-secondary-container": "#fffbff",
+                        "surface-tint": "#124af0",
+                        "on-surface": "#191c1e",
+                        "on-primary-fixed": "#001356",
+                        "error": "#ba1a1a",
+                        "on-tertiary": "#ffffff",
+                        "outline-variant": "#c4c5d9",
+                        "on-error-container": "#93000a",
+                        "surface-container": "#eceef0",
+                        "secondary-fixed-dim": "#c0c1ff",
+                        "primary-fixed-dim": "#b8c3ff",
+                        "on-secondary-fixed": "#07006c",
+                        "surface": "#f7f9fb",
+                        "surface-container-low": "#f2f4f6",
+                        "surface-bright": "#f7f9fb",
+                        "inverse-primary": "#b8c3ff",
+                        "on-surface-variant": "#434656",
+                        "primary-container": "#2e5bff",
+                        "on-tertiary-fixed-variant": "#4f319c",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-container": "#f5edff",
+                        "surface-variant": "#e0e3e5",
+                        "inverse-surface": "#2d3133"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "margin-tablet": "32px",
+                        "container-max": "1280px",
+                        "unit": "8px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "64px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Space Grotesk"],
+                        "display-lg": ["Space Grotesk"],
+                        "label-sm": ["Manrope"],
+                        "label-bold": ["Manrope"],
+                        "headline-md": ["Space Grotesk"],
+                        "headline-lg": ["Space Grotesk"],
+                        "body-lg": ["Manrope"],
+                        "body-md": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "label-bold": ["14px", {"lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 8px 32px 0 rgba(30, 27, 75, 0.05);
+        }
+        .glass-bubble-ai {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.03);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-glow {
+            box-shadow: 0 0 15px rgba(18, 74, 240, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md selection:bg-primary-fixed selection:text-on-primary-fixed overflow-hidden">
+<div class="flex h-screen overflow-hidden">
+<!-- SideNavBar -->
+<aside class="hidden lg:flex flex-col h-screen sticky top-0 p-4 bg-surface-container-low w-72 shadow-sm border-r border-outline-variant">
+<div class="flex items-center gap-3 mb-10 px-2">
+<div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white">
+<span class="material-symbols-outlined">health_metrics</span>
+</div>
+<div>
+<h1 class="font-headline-md text-headline-md font-bold text-primary leading-none">PastiSehat</h1>
+<p class="text-label-sm font-label-sm text-outline">RS Louis Surabaya</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-secondary-container text-on-secondary-container rounded-lg font-bold shadow-sm" href="#">
+<span class="material-symbols-outlined">smart_toy</span>
+<span class="font-label-md">Tanya Cici</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">history</span>
+<span class="font-label-md">Riwayat</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">medical_services</span>
+<span class="font-label-md">Apotek</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-label-md">Bantuan</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 border-t border-outline-variant space-y-1">
+<button class="w-full mb-4 py-3 px-4 bg-gradient-to-r from-primary to-secondary text-white rounded-xl font-bold font-label-bold flex items-center justify-center gap-2 shadow-lg hover:brightness-110 transition-all">
+<span class="material-symbols-outlined">calendar_today</span>
+                    Booking Sekarang
+                </button>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md">Pengaturan</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-label-md">Keluar</span>
+</a>
+</div>
+</aside>
+<!-- Main Chat Canvas -->
+<main class="flex-1 flex flex-col relative h-full bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-primary/5 via-transparent to-transparent">
+<!-- TopAppBar -->
+<header class="h-16 flex items-center justify-between px-6 bg-surface/80 backdrop-blur-md border-b border-outline-variant sticky top-0 z-20">
+<div class="flex items-center gap-3">
+<div class="relative">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center overflow-hidden border border-outline-variant">
+<img alt="Cici AI" class="w-full h-full object-cover" data-alt="A close-up high-key portrait of a friendly female healthcare artificial intelligence avatar with subtle glowing blue highlights on her translucent skin. The background is a sterile, brightly lit futuristic clinical environment with soft bokeh effects. The lighting is professional and airy, suggesting a premium health concierge service." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBmM6rTrLlEdTtEz4ImM3hTevS1V2DphrNjWMJhFjkonSejRYghiW7VWJV3ualEQN-ZIBGm_VhZklmdMkMCLxy7VSdU1gpi0fokcdWO5-eh5pRDWzGCj3fsvmjHSr7re7RSxbYiI0Tov8V-RKApLPOZUVx-zHnYdL4vOvNRfXPF_ExjsOKTmKfV88rNJCvxL5YSW7VDhUWdQDLWAm4m8Di4Cjc6DSip06ar8IabjRL9i8VNDKRpYqs25olxXrjxAdMCVLfIv_pN5By"/>
+</div>
+<div class="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-green-500 border-2 border-surface rounded-full"></div>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md font-bold leading-tight">Tanya Cici</h2>
+<p class="text-label-sm font-label-sm text-primary flex items-center gap-1">
+<span class="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
+                            AI Health Assistant Aktif
+                        </p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-surface-container-high rounded-full transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="w-10 h-10 rounded-full bg-secondary-fixed flex items-center justify-center border border-outline-variant cursor-pointer">
+<span class="material-symbols-outlined text-on-secondary-fixed">account_circle</span>
+</div>
+</div>
+</header>
+<!-- Chat Content Flow -->
+<div id="ai-chat-box" class="flex-1 overflow-y-auto px-4 md:px-10 py-8 space-y-8 pb-32">
+<!-- AI Message -->
+<div class="flex gap-4 max-w-3xl">
+<div class="flex-shrink-0 w-8 h-8 rounded-full bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container text-[18px]">smart_toy</span>
+</div>
+<div class="glass-bubble-ai rounded-2xl rounded-tl-none p-5 text-on-surface-variant">
+<p class="font-body-md text-body-md mb-2">Halo! Saya Cici, asisten kesehatan AI Anda. Bagaimana perasaan Anda hari ini? Ceritakan gejala yang Anda rasakan agar saya bisa membantu melakukan skrining awal.</p>
+<p class="text-label-sm font-label-sm text-outline italic">Sesi ini bersifat privasi dan terenkripsi.</p>
+</div>
+</div>
+<!-- User Message -->
+<div class="flex gap-4 max-w-3xl ml-auto flex-row-reverse">
+<div class="flex-shrink-0 w-8 h-8 rounded-full bg-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-[18px]">person</span>
+</div>
+<div class="bg-primary text-white rounded-2xl rounded-tr-none p-5 shadow-lg shadow-primary/20">
+<p class="font-body-md text-body-md">Sudah dua hari ini saya merasa pusing di bagian dahi dan sedikit nyeri tenggorokan.</p>
+</div>
+</div>
+<!-- AI Message with Doctor Cards -->
+<div class="flex gap-4 max-w-4xl">
+<div class="flex-shrink-0 w-8 h-8 rounded-full bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container text-[18px]">smart_toy</span>
+</div>
+<div class="space-y-4">
+<div class="glass-bubble-ai rounded-2xl rounded-tl-none p-5 text-on-surface-variant">
+<p class="font-body-md text-body-md">Berdasarkan gejala Anda, ada indikasi kelelahan atau gejala flu ringan. Saya sarankan untuk berkonsultasi dengan Dokter Umum. Berikut jadwal dokter yang tersedia hari ini di RS Louis:</p>
+</div>
+<!-- Doctor Cards Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Card 1 -->
+<div class="glass-card rounded-[24px] p-4 flex flex-col gap-4 border border-outline-variant hover:border-primary transition-all group">
+<div class="flex items-center gap-4">
+<img class="w-16 h-16 rounded-2xl object-cover" data-alt="A professional headshot of a middle-aged male doctor with glasses, wearing a pristine white lab coat and a stethoscope. He has a warm, confident smile. The background is a blurred high-end medical clinic with soft blue and white lighting, maintaining the clean clinical aesthetic of the overall UI." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8ktNx7QVa5KSjOpY3-JG070tF46ryFeMegQDlQpcEG1-tN_1gZoWQ58u0Ccq_Mk58aDMl_q18ickek1gBOYwEfvfymktI6sNo1Z7HFzvpE77LKq55raaSpLoqtvx7CI9rBiUhpleBdEvaMOQCmra8_jyG9tUviiO_rRiQda4axSL8o4TUqFBi2AvL-5_fdgnPId8X_VUCzUNbeCGrcjDWg6MkU6zehF7ScFQ6yM4oYmHUxWJpI6NELdK2Y1Ie6j6vRJN-Bz1uyw6C"/>
+<div class="flex-1">
+<h4 class="font-headline-md text-body-lg font-bold">Dr. Adrian Wijaya</h4>
+<p class="text-label-sm text-outline">Spesialis Penyakit Dalam</p>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-yellow-500 text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-label-sm font-bold">4.9</span>
+<span class="text-label-sm text-outline">(120+ Review)</span>
+</div>
+</div>
+</div>
+<div class="flex gap-2">
+<div class="bg-surface-container-high px-3 py-1 rounded-full text-label-sm font-bold text-primary">14:00 - 16:00</div>
+<div class="bg-surface-container-high px-3 py-1 rounded-full text-label-sm font-bold text-primary">19:00 - 21:00</div>
+</div>
+<button class="w-full py-2 bg-secondary-container text-on-secondary-container rounded-xl font-bold font-label-bold group-hover:bg-primary group-hover:text-white transition-all">
+                                    Pilih Jadwal
+                                </button>
+</div>
+<!-- Card 2 -->
+<div class="glass-card rounded-[24px] p-4 flex flex-col gap-4 border border-outline-variant hover:border-primary transition-all group">
+<div class="flex items-center gap-4">
+<img class="w-16 h-16 rounded-2xl object-cover" data-alt="A professional headshot of a female doctor with her hair tied back, wearing a white medical coat and holding a digital tablet. She has a professional and empathetic expression. The background is a clean, minimalist laboratory setting with glass partitions and soft, cool-toned lighting that matches the futuristic medical theme." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLHRIJi2pUS4XXbIIcC3CE9PVgn0tigsvHVQJeVt6_M06q8jMEIIhP-UzpcDzmF2wLhN5lv0QljU2RiqAp5kIm0fk_cBmMs0UoFfiuh2BNxVNkHOEIAWLUzVQZfF4HtawbpMKfhafGj4_gqpaeU5d0UdGLzS59snhjLn54IVjXxwmbCtUrcCiXe8y9-RzxqLX6cRz7JTWHkN4iWdbi8LBuoURSMwX3hUkxx_jNQsyENTN8A8oVFzmcy8dNAPIpboBR3g51S2urPGH8"/>
+<div class="flex-1">
+<h4 class="font-headline-md text-body-lg font-bold">Dr. Sarah Quinn</h4>
+<p class="text-label-sm text-outline">Dokter Umum</p>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-yellow-500 text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-label-sm font-bold">4.8</span>
+<span class="text-label-sm text-outline">(85+ Review)</span>
+</div>
+</div>
+</div>
+<div class="flex gap-2">
+<div class="bg-surface-container-high px-3 py-1 rounded-full text-label-sm font-bold text-primary">Sekarang</div>
+<div class="bg-surface-container-high px-3 py-1 rounded-full text-label-sm font-bold text-primary">15:30 - 18:00</div>
+</div>
+<button class="w-full py-2 bg-secondary-container text-on-secondary-container rounded-xl font-bold font-label-bold group-hover:bg-primary group-hover:text-white transition-all">
+                                    Pilih Jadwal
+                                </button>
+</div>
+</div>
+</div>
+</div>
+<!-- AI Thinking (Visual Placeholder) -->
+<div class="flex gap-4 max-w-3xl">
+<div class="flex-shrink-0 w-8 h-8 rounded-full bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container text-[18px]">smart_toy</span>
+</div>
+<div class="flex gap-1.5 p-4 glass-bubble-ai rounded-2xl rounded-tl-none">
+<div class="w-2 h-2 bg-outline-variant rounded-full animate-bounce"></div>
+<div class="w-2 h-2 bg-outline-variant rounded-full animate-bounce [animation-delay:0.2s]"></div>
+<div class="w-2 h-2 bg-outline-variant rounded-full animate-bounce [animation-delay:0.4s]"></div>
+</div>
+</div>
+</div>
+<!-- Sleek Input Bar -->
+<div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-background via-background/90 to-transparent">
+<div class="max-w-4xl mx-auto glass-card rounded-3xl p-2 flex items-center gap-2 border border-outline-variant active-glow transition-shadow">
+<div class="flex items-center gap-1 px-2 border-r border-outline-variant/30">
+<button class="p-2 hover:bg-surface-container-high rounded-full transition-colors text-on-surface-variant" title="Upload Gambar">
+<span class="material-symbols-outlined">image</span>
+</button>
+<button class="p-2 hover:bg-surface-container-high rounded-full transition-colors text-on-surface-variant" title="Voice Message">
+<span class="material-symbols-outlined">mic</span>
+</button>
+</div>
+<input id="ai-chat-input" class="flex-1 bg-transparent border-none focus:ring-0 text-body-md font-body-md px-4 placeholder:text-outline/60" placeholder="Tulis gejala atau pertanyaan Anda di sini..." type="text"/>
+<button id="ai-send-btn" class="w-12 h-12 rounded-2xl bg-gradient-to-r from-primary to-secondary text-white flex items-center justify-center shadow-md hover:scale-105 active:scale-95 transition-all">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">send</span>
+</button>
+</div>
+<div class="max-w-4xl mx-auto mt-3 px-6 flex justify-between">
+<p class="text-[11px] text-outline text-center w-full">AI Cici dapat memberikan informasi kesehatan umum namun bukan pengganti diagnosa medis profesional.</p>
+</div>
+</div>
+</main>
+<!-- Right Side: Details/Context Panel (Optional for Desktop) -->
+<aside class="hidden xl:flex flex-col w-80 h-screen sticky top-0 p-6 bg-surface border-l border-outline-variant">
+<div class="mb-8">
+<h3 class="font-headline-md text-body-lg font-bold mb-4">Ringkasan Sesi</h3>
+<div class="glass-card rounded-2xl p-4 space-y-4">
+<div>
+<p class="text-label-sm font-label-bold text-outline uppercase tracking-wider mb-1">Gejala Terdeteksi</p>
+<div class="flex flex-wrap gap-2">
+<span class="bg-error-container text-on-error-container px-3 py-1 rounded-full text-[12px] font-bold">Pusing</span>
+<span class="bg-error-container text-on-error-container px-3 py-1 rounded-full text-[12px] font-bold">Nyeri Tenggorokan</span>
+</div>
+</div>
+<div>
+<p class="text-label-sm font-label-bold text-outline uppercase tracking-wider mb-1">Tingkat Urgensi</p>
+<div class="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full w-1/3 bg-primary"></div>
+</div>
+<p class="text-[12px] mt-1 font-bold text-primary">Rendah - Konsultasi Disarankan</p>
+</div>
+</div>
+</div>
+<div class="flex-1">
+<h3 class="font-headline-md text-body-lg font-bold mb-4">Artikel Terkait</h3>
+<div class="space-y-4">
+<div class="group cursor-pointer">
+<div class="w-full h-24 rounded-2xl overflow-hidden mb-2">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A clean, minimalist high-key photograph of a glass of water and a vitamin supplement on a white marble surface. The lighting is bright and airy, reflecting a health-conscious and modern wellness aesthetic, with soft shadows and a very clinical, high-end laboratory feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCstb-HO6WbFbBypT3iGgaty5EkQESr7ms1dMQwVj2RQeU2g56dX-TR9jk7Nmh7o-RbbTKcOfkV_GN67uo-U-lvOXv_uPipt66xCnA29Bps7EvqV85tlFuyy3y4zsDTZzyO96xsT_EfkKEJHaZ8wyXWVHFj30bDO-i7Oo9x-ShXhi61QpD6e0Y6NgGW4uA5L7Ezotu8Dw1AwsWJPTtqLGBfIwAy6VZEsntDm2MVCMkWs4grKSPkp0gjJEOU4idQY7KTPPtEpFe09Ihm"/>
+</div>
+<h5 class="text-label-bold font-bold leading-tight group-hover:text-primary transition-colors">5 Cara Meredakan Pusing di Rumah</h5>
+<p class="text-[12px] text-outline">Baca 3 menit</p>
+</div>
+<div class="group cursor-pointer">
+<div class="w-full h-24 rounded-2xl overflow-hidden mb-2">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A macro shot of a scientific laboratory setting with test tubes and a glowing blue biological sample. The image features high contrast, vibrant blue and purple lighting against white clinical surfaces, evoking a sense of cutting-edge biotechnology and genomic research quality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0u0oAVaLjTbPSo_pjujJitwHnsNpvTZX7WN7h5dP-4RfU9qjVwETiX6qswEmB_KB1rg9RZ1JuMpRgX15qD65xeAPZmcI2GGFLgLipTZR6wBuYo4G-uriM7L-81wEe3TfFYTSplNLxkYOhd55OdjAhWX-k5jZ8Lwbk6JWrWr4O9mjzJH3jZXZJKjaXq6u2VlXP0tXMOKTsqJi7FDVmHYIMysGtJM5EpsTzrUK2a_HJz_vVIihA5U8Joqxk1yVvA8tClr63raShWEbP"/>
+</div>
+<h5 class="text-label-bold font-bold leading-tight group-hover:text-primary transition-colors">Membedakan Flu dan Alergi Musiman</h5>
+<p class="text-[12px] text-outline">Baca 5 menit</p>
+</div>
+</div>
+</div>
+<footer class="mt-auto">
+<p class="text-[11px] text-outline-variant text-center">© 2024 RS Louis Surabaya. Terakreditasi KARS.</p>
+</footer>
+</aside>
+</div>
+<!-- Mobile Nav Bar (Hidden on Desktop) -->
+<nav class="lg:hidden fixed bottom-0 left-0 right-0 bg-surface/90 backdrop-blur-xl border-t border-outline-variant flex justify-around items-center h-16 px-4 z-50">
+<a class="flex flex-col items-center gap-1 text-outline" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px] font-label-bold">Dashboard</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+<span class="text-[10px] font-label-bold">Tanya Cici</span>
+</a>
+<div class="relative -top-4">
+<div class="w-14 h-14 rounded-full bg-gradient-to-r from-primary to-secondary flex items-center justify-center text-white shadow-lg border-4 border-background">
+<span class="material-symbols-outlined">add</span>
+</div>
+</div>
+<a class="flex flex-col items-center gap-1 text-outline" href="#">
+<span class="material-symbols-outlined">history</span>
+<span class="text-[10px] font-label-bold">Riwayat</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-outline" href="#">
+<span class="material-symbols-outlined">account_circle</span>
+<span class="text-[10px] font-label-bold">Profil</span>
+</a>
+</nav>
+</body></html>

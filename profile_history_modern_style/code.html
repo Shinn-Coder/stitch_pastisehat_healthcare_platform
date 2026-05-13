@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed": "#21005e",
+                    "secondary-container": "#6063ee",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "surface-dim": "#d8dadc",
+                    "on-primary-fixed-variant": "#0035be",
+                    "tertiary-container": "#765ac5",
+                    "on-primary-container": "#efefff",
+                    "primary-fixed": "#dde1ff",
+                    "on-error": "#ffffff",
+                    "surface-container-highest": "#e0e3e5",
+                    "tertiary-fixed": "#e8ddff",
+                    "secondary": "#4648d4",
+                    "inverse-on-surface": "#eff1f3",
+                    "on-secondary-fixed-variant": "#2f2ebe",
+                    "outline": "#747688",
+                    "secondary-fixed": "#e1e0ff",
+                    "background": "#f7f9fb",
+                    "on-secondary-container": "#fffbff",
+                    "surface-tint": "#124af0",
+                    "on-surface": "#191c1e",
+                    "on-primary-fixed": "#001356",
+                    "error": "#ba1a1a",
+                    "on-tertiary": "#ffffff",
+                    "outline-variant": "#c4c5d9",
+                    "on-error-container": "#93000a",
+                    "surface-container": "#eceef0",
+                    "secondary-fixed-dim": "#c0c1ff",
+                    "primary-fixed-dim": "#b8c3ff",
+                    "on-secondary-fixed": "#07006c",
+                    "surface": "#f7f9fb",
+                    "surface-container-high": "#e6e8ea",
+                    "primary": "#0040e0",
+                    "on-background": "#191c1e",
+                    "tertiary-fixed-dim": "#cebdff",
+                    "tertiary": "#5d41ab",
+                    "on-primary": "#ffffff",
+                    "surface-container-low": "#f2f4f6",
+                    "surface-bright": "#f7f9fb",
+                    "inverse-primary": "#b8c3ff",
+                    "on-surface-variant": "#434656",
+                    "primary-container": "#2e5bff",
+                    "on-tertiary-fixed-variant": "#4f319c",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-container": "#f5edff",
+                    "surface-variant": "#e0e3e5",
+                    "inverse-surface": "#2d3133"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "margin-tablet": "32px",
+                    "container-max": "1280px",
+                    "unit": "8px",
+                    "margin-mobile": "16px",
+                    "margin-desktop": "64px"
+            },
+            "fontFamily": {
+                    "headline-lg-mobile": ["Space Grotesk"],
+                    "display-lg": ["Space Grotesk"],
+                    "label-sm": ["Manrope"],
+                    "label-bold": ["Manrope"],
+                    "headline-md": ["Space Grotesk"],
+                    "headline-lg": ["Space Grotesk"],
+                    "body-lg": ["Manrope"],
+                    "body-md": ["Manrope"]
+            },
+            "fontSize": {
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "label-bold": ["14px", {"lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 8px 32px 0 rgba(30, 27, 75, 0.04);
+        }
+        .inner-glow {
+            box-shadow: inset 1px 1px 0px rgba(255, 255, 255, 0.4);
+        }
+        .gradient-primary {
+            background: linear-gradient(135deg, #2e5bff 0%, #4648d4 100%);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen">
+<div class="flex min-h-screen">
+<!-- SideNavBar - JSON Defined -->
+<aside class="hidden lg:flex flex-col h-screen sticky top-0 p-md bg-surface-container-low dark:bg-surface-dim shadow-sm w-64 border-r border-outline-variant">
+<div class="mb-10 px-4">
+<h1 class="text-headline-md font-headline-md font-bold text-primary">PastiSehat</h1>
+<p class="text-on-surface-variant font-label-bold text-label-bold">RS Louis Surabaya</p>
+</div>
+<nav class="flex-1 space-y-2 px-2">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-high rounded-lg transition-colors group" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-high rounded-lg transition-colors group" href="#">
+<span class="material-symbols-outlined" data-icon="smart_toy">smart_toy</span>
+<span class="font-label-md text-label-md">Tanya Cici</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-lg font-bold transition-all scale-[0.98]" href="#">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span class="font-label-md text-label-md">Riwayat</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-high rounded-lg transition-colors group" href="#">
+<span class="material-symbols-outlined" data-icon="medical_services">medical_services</span>
+<span class="font-label-md text-label-md">Apotek</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-high rounded-lg transition-colors group" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span class="font-label-md text-label-md">Bantuan</span>
+</a>
+</nav>
+<div class="mt-auto px-2 space-y-2">
+<button class="w-full gradient-primary text-white font-label-bold text-label-bold py-3 rounded-xl mb-6 shadow-lg shadow-primary/20">
+                    Booking Sekarang
+                </button>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-high rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-md text-label-md">Pengaturan</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-high rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-label-md text-label-md">Keluar</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 max-w-container-max mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin-desktop py-gutter">
+<!-- Top Header Section -->
+<header class="flex flex-col md:flex-row md:items-end justify-between gap-gutter mb-10">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-2">Profil &amp; Riwayat Medis</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Data terenkripsi dan terverifikasi oleh RS Louis Surabaya.</p>
+</div>
+<div class="flex items-center gap-4">
+<div class="text-right hidden md:block">
+<p class="font-label-bold text-label-bold text-on-surface">ID Pasien: #RL-2024-9912</p>
+<p class="text-label-sm text-on-surface-variant">Terdaftar sejak: Jan 2021</p>
+</div>
+<img alt="User profile avatar" class="w-16 h-16 rounded-full border-4 border-white shadow-md" data-alt="A professional high-resolution studio portrait of a middle-aged man with a friendly expression. He is wearing a clean white shirt against a bright, airy clinical background with soft blue lighting. The image has a premium, modern aesthetic with high-key lighting and a cool color temperature that aligns with a high-end medical concierge interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjrB43GZ9_IyVwiEf9cflXhxWuqh-D9me_ZWFz_IQMY3-YvEmVCbRib17RLG6C7Qt3JYJWaZeVzQgPglyQ1BVUzORq31Izg-bgGzVkDxb8AJ2VVlST73M49EFgE_eLJU9FDZipSmHC3DcVkmk9-oKSt1b4gVSmityP_VVPZ1kbPnfn6sg-RPuYw6KI0nkY8r3zSuxlnreh1-c7edq-vO3OeAczPXo5rJZF3M3G_vpVNwk84ypMFLwogdcqq74wfr2BzyvAsD_tPLBe"/>
+</div>
+</header>
+<!-- Two-Column Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<!-- Left Column: User Vitals & Info -->
+<div class="lg:col-span-4 space-y-gutter">
+<!-- Bio Glass Card -->
+<section class="glass-panel rounded-[24px] p-gutter inner-glow">
+<div class="flex flex-col items-center text-center mb-6">
+<h3 class="font-headline-md text-headline-md text-on-surface">Budi Satria, M.Kom</h3>
+<span class="bg-secondary-fixed text-on-secondary-fixed-variant px-4 py-1 rounded-full text-label-sm font-label-bold mt-2">Gold Member</span>
+</div>
+<div class="grid grid-cols-2 gap-4 py-6 border-y border-outline-variant/30">
+<div class="text-center">
+<p class="text-label-sm text-outline uppercase tracking-wider">Gol. Darah</p>
+<p class="font-headline-md text-headline-md text-primary">O+</p>
+</div>
+<div class="text-center border-l border-outline-variant/30">
+<p class="text-label-sm text-outline uppercase tracking-wider">Usia</p>
+<p class="font-headline-md text-headline-md text-on-surface">34th</p>
+</div>
+</div>
+<div class="space-y-4 pt-6">
+<div class="flex justify-between items-center">
+<span class="text-on-surface-variant font-label-bold">Tinggi Badan</span>
+<span class="font-body-md text-on-surface font-bold">178 cm</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-on-surface-variant font-label-bold">Berat Badan</span>
+<span class="font-body-md text-on-surface font-bold">72 kg</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-on-surface-variant font-label-bold">Tekanan Darah</span>
+<span class="font-body-md text-primary font-bold">120/80 mmHg</span>
+</div>
+</div>
+</section>
+<!-- Medical History Tags -->
+<section class="glass-panel rounded-[24px] p-gutter inner-glow">
+<div class="flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-primary" data-icon="clinical_notes">clinical_notes</span>
+<h4 class="font-label-bold text-label-bold text-on-surface uppercase tracking-widest">Kondisi &amp; Alergi</h4>
+</div>
+<div class="space-y-6">
+<div>
+<p class="text-label-sm text-outline mb-3 font-bold">KONDISI KRONIS</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-4 py-2 rounded-xl bg-surface-container-high text-on-surface-variant font-label-bold border border-outline-variant/20">Asma Ringan</span>
+<span class="px-4 py-2 rounded-xl bg-surface-container-high text-on-surface-variant font-label-bold border border-outline-variant/20">Hipertensi Tahap 1</span>
+</div>
+</div>
+<div>
+<p class="text-label-sm text-error mb-3 font-bold">ALERGI OBAT</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-4 py-2 rounded-xl bg-error-container text-on-error-container font-label-bold border border-error/20">Penisilin</span>
+<span class="px-4 py-2 rounded-xl bg-error-container text-on-error-container font-label-bold border border-error/20">Sulfonamida</span>
+</div>
+</div>
+<button class="w-full flex items-center justify-center gap-2 text-primary font-label-bold hover:bg-primary-fixed/30 py-3 rounded-xl transition-colors border border-dashed border-primary/40">
+<span class="material-symbols-outlined text-[18px]" data-icon="add_circle">add_circle</span>
+                                Tambah Data Medis
+                            </button>
+</div>
+</section>
+</div>
+<!-- Right Column: Appointment History -->
+<div class="lg:col-span-8 space-y-gutter">
+<!-- Tabs -->
+<div class="flex p-1.5 bg-surface-container-high rounded-[20px] max-w-lg mb-4">
+<button class="flex-1 py-4 px-6 bg-white shadow-sm rounded-[16px] font-headline-md text-headline-md text-primary font-bold">Selesai</button>
+<button class="flex-1 py-4 px-6 text-on-surface-variant font-headline-md text-headline-md hover:text-primary transition-colors">Mendatang</button>
+<button class="flex-1 py-4 px-6 text-on-surface-variant font-headline-md text-headline-md hover:text-primary transition-colors">Batal</button>
+</div>
+<!-- Appointment Cards List -->
+<div class="space-y-6">
+<!-- Card 1 -->
+<article class="glass-panel rounded-[24px] overflow-hidden inner-glow transition-all hover:translate-y-[-4px]">
+<div class="p-gutter">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6">
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 rounded-2xl bg-primary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[32px]" data-icon="medication">medication</span>
+</div>
+<div>
+<span class="text-label-sm text-outline font-bold uppercase tracking-tighter">14 Mar 2024 • 10:30 WIB</span>
+<h5 class="font-headline-md text-headline-md text-on-surface">Konsultasi Jantung Koroner</h5>
+<p class="text-on-surface-variant">dr. Adrian Perkasa, Sp.JP</p>
+</div>
+</div>
+<div class="flex items-center gap-2 bg-green-100 text-green-700 px-4 py-2 rounded-full">
+<span class="material-symbols-outlined text-[18px]" data-icon="check_circle" data-weight="fill">check_circle</span>
+<span class="font-label-bold text-label-bold uppercase">Selesai</span>
+</div>
+</div>
+<!-- Prescription Alert Box -->
+<div class="bg-secondary-container/10 border-l-4 border-secondary-container p-6 rounded-r-2xl mb-6">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-secondary" data-icon="prescription">prescriptions</span>
+<div class="flex-1">
+<h6 class="font-label-bold text-label-bold text-on-secondary-container mb-2">RESEP TERSEDIA (3 OBAT)</h6>
+<div class="flex flex-wrap gap-x-6 gap-y-2 text-on-surface-variant text-body-md">
+<span class="flex items-center gap-1">• Amlodipine 5mg</span>
+<span class="flex items-center gap-1">• Atorvastatin 20mg</span>
+<span class="flex items-center gap-1">• Aspirin 81mg</span>
+</div>
+</div>
+<button class="bg-primary text-white px-6 py-3 rounded-xl font-label-bold shadow-md hover:brightness-110 transition-all">
+                                            Tebus Obat
+                                        </button>
+</div>
+</div>
+<div class="flex gap-4 border-t border-outline-variant/30 pt-6">
+<button class="flex items-center gap-2 text-on-surface-variant font-label-bold px-4 py-2 hover:bg-surface-container transition-colors rounded-lg">
+<span class="material-symbols-outlined" data-icon="download">download</span>
+                                        Hasil Lab
+                                    </button>
+<button class="flex items-center gap-2 text-on-surface-variant font-label-bold px-4 py-2 hover:bg-surface-container transition-colors rounded-lg">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+                                        Invoice
+                                    </button>
+</div>
+</div>
+</article>
+<!-- Card 2 -->
+<article class="glass-panel rounded-[24px] overflow-hidden inner-glow transition-all hover:translate-y-[-4px]">
+<div class="p-gutter">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6">
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 rounded-2xl bg-tertiary-fixed flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-[32px]" data-icon="stethoscope">stethoscope</span>
+</div>
+<div>
+<span class="text-label-sm text-outline font-bold uppercase tracking-tighter">02 Feb 2024 • 09:00 WIB</span>
+<h5 class="font-headline-md text-headline-md text-on-surface">Pemeriksaan Rutin (General Check-up)</h5>
+<p class="text-on-surface-variant">dr. Maria Ulfa, Sp.PD</p>
+</div>
+</div>
+<div class="flex items-center gap-2 bg-green-100 text-green-700 px-4 py-2 rounded-full">
+<span class="material-symbols-outlined text-[18px]" data-icon="check_circle" data-weight="fill">check_circle</span>
+<span class="font-label-bold text-label-bold uppercase">Selesai</span>
+</div>
+</div>
+<div class="flex items-center gap-4 text-on-surface-variant mb-6">
+<span class="material-symbols-outlined text-primary" data-icon="info">info</span>
+<p class="font-body-md italic text-body-md">"Pasien dalam kondisi prima. Disarankan untuk tetap menjaga pola makan rendah kolesterol."</p>
+</div>
+<div class="flex gap-4 border-t border-outline-variant/30 pt-6">
+<button class="flex items-center gap-2 text-on-surface-variant font-label-bold px-4 py-2 hover:bg-surface-container transition-colors rounded-lg">
+<span class="material-symbols-outlined" data-icon="visibility">visibility</span>
+                                        Lihat Catatan
+                                    </button>
+<button class="flex items-center gap-2 text-on-surface-variant font-label-bold px-4 py-2 hover:bg-surface-container transition-colors rounded-lg">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+                                        Invoice
+                                    </button>
+</div>
+</div>
+</article>
+</div>
+<!-- Footer - JSON Derived -->
+<footer class="w-full py-xl flex flex-col md:flex-row justify-between items-center gap-md border-t border-outline-variant mt-12">
+<div class="text-on-surface-variant font-body-md text-body-md">
+                            © 2024 RS Louis Surabaya. Terakreditasi KARS.
+                        </div>
+<div class="flex flex-wrap justify-center gap-6">
+<a class="text-on-surface-variant hover:underline hover:text-primary transition-colors font-body-md" href="#">Kebijakan Privasi</a>
+<a class="text-on-surface-variant hover:underline hover:text-primary transition-colors font-body-md" href="#">Syarat &amp; Ketentuan</a>
+<a class="text-on-surface-variant hover:underline hover:text-primary transition-colors font-body-md" href="#">Pusat Bantuan</a>
+<a class="text-on-surface-variant hover:underline hover:text-primary transition-colors font-body-md" href="#">Kontak Kami</a>
+</div>
+</footer>
+</div>
+</div>
+</main>
+</div>
+</body></html>

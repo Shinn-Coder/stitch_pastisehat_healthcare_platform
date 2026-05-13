@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed": "#21005e",
+                        "secondary-container": "#6063ee",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#d8dadc",
+                        "on-primary-fixed-variant": "#0035be",
+                        "tertiary-container": "#765ac5",
+                        "on-primary-container": "#efefff",
+                        "primary-fixed": "#dde1ff",
+                        "on-error": "#ffffff",
+                        "surface-container-highest": "#e0e3e5",
+                        "tertiary-fixed": "#e8ddff",
+                        "secondary": "#4648d4",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-secondary-fixed-variant": "#2f2ebe",
+                        "outline": "#747688",
+                        "secondary-fixed": "#e1e0ff",
+                        "background": "#f7f9fb",
+                        "on-secondary-container": "#fffbff",
+                        "surface-tint": "#124af0",
+                        "on-surface": "#191c1e",
+                        "on-primary-fixed": "#001356",
+                        "error": "#ba1a1a",
+                        "on-tertiary": "#ffffff",
+                        "outline-variant": "#c4c5d9",
+                        "on-error-container": "#93000a",
+                        "surface-container": "#eceef0",
+                        "secondary-fixed-dim": "#c0c1ff",
+                        "primary-fixed-dim": "#b8c3ff",
+                        "on-secondary-fixed": "#07006c",
+                        "surface": "#f7f9fb",
+                        "surface-container-high": "#e6e8ea",
+                        "primary": "#0040e0",
+                        "on-background": "#191c1e",
+                        "tertiary-fixed-dim": "#cebdff",
+                        "tertiary": "#5d41ab",
+                        "on-primary": "#ffffff",
+                        "surface-container-low": "#f2f4f6",
+                        "surface-bright": "#f7f9fb",
+                        "inverse-primary": "#b8c3ff",
+                        "on-surface-variant": "#434656",
+                        "primary-container": "#2e5bff",
+                        "on-tertiary-fixed-variant": "#4f319c",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-container": "#f5edff",
+                        "surface-variant": "#e0e3e5",
+                        "inverse-surface": "#2d3133"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "margin-tablet": "32px",
+                        "container-max": "1280px",
+                        "unit": "8px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "64px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Space Grotesk"],
+                        "display-lg": ["Space Grotesk"],
+                        "label-sm": ["Manrope"],
+                        "label-bold": ["Manrope"],
+                        "headline-md": ["Space Grotesk"],
+                        "headline-lg": ["Space Grotesk"],
+                        "body-lg": ["Manrope"],
+                        "body-md": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "label-bold": ["14px", {"lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 4px 24px -1px rgba(30, 27, 75, 0.06);
+        }
+        .inner-glow {
+            box-shadow: inset 1px 1px 0px rgba(255, 255, 255, 0.4);
+        }
+        .electric-gradient {
+            background: linear-gradient(135deg, #2e5bff 0%, #124af0 100%);
+        }
+        .sidebar-active {
+            background-color: #6063ee;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md">
+<div class="flex min-h-screen">
+<!-- SideNavBar -->
+<aside class="hidden lg:flex flex-col h-screen sticky top-0 p-md w-64 bg-surface-container-low border-r border-outline-variant shadow-sm z-50">
+<div class="px-gutter py-8 flex flex-col gap-2">
+<div class="flex items-center gap-3 mb-8">
+<div class="w-10 h-10 rounded-xl electric-gradient flex items-center justify-center text-white">
+<span class="material-symbols-outlined">health_metrics</span>
+</div>
+<div>
+<h1 class="text-headline-md font-bold text-primary leading-tight">PastiSehat</h1>
+<p class="text-label-sm text-on-surface-variant">RS Louis Surabaya</p>
+</div>
+</div>
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors font-label-bold" href="#">
+<span class="material-symbols-outlined">dashboard</span> Dashboard
+                    </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors font-label-bold" href="#">
+<span class="material-symbols-outlined">smart_toy</span> Tanya Cici
+                    </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors font-label-bold" href="#">
+<span class="material-symbols-outlined">history</span> Riwayat
+                    </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg bg-secondary-container text-on-secondary-container font-bold shadow-sm" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">medical_services</span> Apotek
+                    </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors font-label-bold" href="#">
+<span class="material-symbols-outlined">help</span> Bantuan
+                    </a>
+</nav>
+<div class="mt-auto pt-8 flex flex-col gap-2">
+<button class="w-full py-4 rounded-2xl electric-gradient text-white font-bold text-label-bold shadow-lg hover:opacity-90 transition-all mb-4">
+                        Booking Sekarang
+                    </button>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors font-label-bold" href="#">
+<span class="material-symbols-outlined">settings</span> Pengaturan
+                    </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-error hover:bg-error-container/20 transition-colors font-label-bold" href="#">
+<span class="material-symbols-outlined">logout</span> Keluar
+                    </a>
+</div>
+</div>
+</aside>
+<main class="flex-1 flex flex-col min-w-0">
+<!-- TopNavBar -->
+<header class="w-full bg-surface h-16 border-b border-outline-variant flex justify-between items-center px-gutter sticky top-0 z-40">
+<div class="flex items-center gap-gutter flex-1">
+<div class="relative w-full max-w-md hidden md:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full bg-surface-container-low border-none rounded-full pl-10 pr-4 py-2 text-body-md focus:ring-2 focus:ring-primary" placeholder="Cari obat atau resep..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-6 px-6 border-r border-outline-variant hidden xl:flex">
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-bold" href="#">Dashboard</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-bold" href="#">Booking</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-bold" href="#">Riwayat</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1" href="#">Apotek</a>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-low text-on-surface-variant">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="flex items-center gap-3 pl-2">
+<img alt="User Profile" class="w-8 h-8 rounded-full object-cover" data-alt="A professional medical professional portrait in high-key studio lighting with a clean white clinical background. The doctor is smiling confidently, wearing a crisp white lab coat and a modern stethoscope. The lighting is bright and even, reinforcing a sterile yet welcoming advanced clinical aesthetic. The style is premium and high-fidelity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCo2Fo5vBlWehraHa4Q6P1O8u5k4_qxHynQDjBL7OncvZ5swpvW02xfPE2mW9PJGYsgJksyV0Ka8909mDfLW8jLh5AuFKlivDxW6WLxv5TssUUKwEmJPqO0-Ef3nJVYCka_G7WCWjKWbKPfzqwRWOZZJSz88VlLOHAqempKVEZUoos57gIlE71AjW9uTmsU5gyULymMZwWw3NBhMEe8jPNdMu9wdzgZQHZ4BfWZQsw7ViNTisUdnWq2pbbJkiv0PgwfeRcTgaclgF3C"/>
+<span class="font-label-bold hidden sm:block">Dr. Louis</span>
+</div>
+</div>
+</header>
+<!-- Page Content -->
+<div class="flex-1 p-gutter max-w-container-max mx-auto w-full">
+<!-- Hero / Status Section -->
+<section class="mb-12">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<span class="inline-flex items-center px-3 py-1 rounded-full bg-secondary-container/10 text-secondary text-label-sm font-bold mb-3 border border-secondary/20">
+<span class="material-symbols-outlined text-[14px] mr-1">pill</span> Farmasi Digital
+                            </span>
+<h2 class="font-headline-lg text-display-lg text-on-surface mb-2">Manajemen Obat</h2>
+<p class="text-body-lg text-on-surface-variant max-w-2xl">Kelola resep aktif Anda dan tebus obat secara instan melalui sistem terintegrasi RS Louis Surabaya.</p>
+</div>
+<div class="flex gap-3">
+<button class="px-6 py-3 rounded-2xl glass-card inner-glow font-label-bold flex items-center gap-2 text-primary hover:bg-white transition-all">
+<span class="material-symbols-outlined">upload_file</span> Unggah Resep
+                            </button>
+<button class="px-8 py-3 rounded-2xl electric-gradient text-white font-bold text-label-bold shadow-lg hover:scale-105 transition-all flex items-center gap-2">
+<span class="material-symbols-outlined">shopping_cart_checkout</span> Tebus Semua
+                            </button>
+</div>
+</div>
+</section>
+<!-- Active Prescriptions (Glassmorphism Cards) -->
+<section class="mb-16">
+<div class="flex items-center justify-between mb-6">
+<h3 class="font-headline-md text-on-surface">Resep Aktif (3)</h3>
+<a class="text-primary font-label-bold hover:underline" href="#">Lihat Detail Resep</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+<!-- Medicine Card 1 -->
+<div class="glass-card inner-glow p-6 rounded-[24px] flex flex-col relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4">
+<span class="bg-tertiary-fixed text-on-tertiary-fixed text-label-sm font-bold px-2 py-1 rounded-lg">Pagi &amp; Malam</span>
+</div>
+<div class="flex items-start gap-4 mb-6">
+<div class="w-14 h-14 rounded-2xl bg-primary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">medication</span>
+</div>
+<div>
+<h4 class="font-headline-md text-on-surface">Amoxicillin</h4>
+<p class="text-label-sm text-on-surface-variant">Antibiotik • 500mg</p>
+</div>
+</div>
+<div class="space-y-4 mb-8">
+<div class="flex justify-between items-center text-body-md">
+<span class="text-on-surface-variant">Kuantitas:</span>
+<span class="font-bold">15 Tablet</span>
+</div>
+<div class="flex justify-between items-center text-body-md">
+<span class="text-on-surface-variant">Sisa Stok:</span>
+<span class="text-error font-bold">3 Tablet</span>
+</div>
+<div class="pt-4 border-t border-outline-variant flex justify-between items-center">
+<span class="text-label-sm font-bold text-on-surface-variant uppercase tracking-wider">Estimasi Harga</span>
+<span class="text-headline-md font-bold text-primary">Rp 45.000</span>
+</div>
+</div>
+<button class="w-full py-4 rounded-xl bg-primary text-white font-bold text-label-bold hover:bg-primary-container transition-all">
+                                Tebus Obat
+                            </button>
+</div>
+<!-- Medicine Card 2 -->
+<div class="glass-card inner-glow p-6 rounded-[24px] flex flex-col relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4">
+<span class="bg-secondary-fixed text-on-secondary-fixed text-label-sm font-bold px-2 py-1 rounded-lg">Sesudah Makan</span>
+</div>
+<div class="flex items-start gap-4 mb-6">
+<div class="w-14 h-14 rounded-2xl bg-tertiary-fixed flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-3xl">vaccines</span>
+</div>
+<div>
+<h4 class="font-headline-md text-on-surface">Metformin</h4>
+<p class="text-label-sm text-on-surface-variant">Diabetes • 850mg</p>
+</div>
+</div>
+<div class="space-y-4 mb-8">
+<div class="flex justify-between items-center text-body-md">
+<span class="text-on-surface-variant">Kuantitas:</span>
+<span class="font-bold">30 Tablet</span>
+</div>
+<div class="flex justify-between items-center text-body-md">
+<span class="text-on-surface-variant">Sisa Stok:</span>
+<span class="text-secondary font-bold">12 Tablet</span>
+</div>
+<div class="pt-4 border-t border-outline-variant flex justify-between items-center">
+<span class="text-label-sm font-bold text-on-surface-variant uppercase tracking-wider">Estimasi Harga</span>
+<span class="text-headline-md font-bold text-primary">Rp 120.000</span>
+</div>
+</div>
+<button class="w-full py-4 rounded-xl bg-primary text-white font-bold text-label-bold hover:bg-primary-container transition-all">
+                                Tebus Obat
+                            </button>
+</div>
+<!-- Medicine Card 3 -->
+<div class="glass-card inner-glow p-6 rounded-[24px] flex flex-col relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4">
+<span class="bg-error-container text-on-error-container text-label-sm font-bold px-2 py-1 rounded-lg">Habis</span>
+</div>
+<div class="flex items-start gap-4 mb-6">
+<div class="w-14 h-14 rounded-2xl bg-surface-container-highest flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-3xl">prescriptions</span>
+</div>
+<div>
+<h4 class="font-headline-md text-on-surface">Lisinopril</h4>
+<p class="text-label-sm text-on-surface-variant">Hipertensi • 10mg</p>
+</div>
+</div>
+<div class="space-y-4 mb-8">
+<div class="flex justify-between items-center text-body-md">
+<span class="text-on-surface-variant">Kuantitas:</span>
+<span class="font-bold">20 Tablet</span>
+</div>
+<div class="flex justify-between items-center text-body-md">
+<span class="text-on-surface-variant">Sisa Stok:</span>
+<span class="text-error font-bold">0 Tablet</span>
+</div>
+<div class="pt-4 border-t border-outline-variant flex justify-between items-center">
+<span class="text-label-sm font-bold text-on-surface-variant uppercase tracking-wider">Estimasi Harga</span>
+<span class="text-headline-md font-bold text-primary">Rp 85.000</span>
+</div>
+</div>
+<button class="w-full py-4 rounded-xl electric-gradient text-white font-bold text-label-bold shadow-lg hover:opacity-90 transition-all scale-105 z-10">
+                                Tebus Obat Sekarang
+                            </button>
+</div>
+</div>
+</section>
+<!-- Past Prescription History Section -->
+<section>
+<div class="flex items-center justify-between mb-8">
+<h3 class="font-headline-md text-on-surface">Riwayat Pembelian</h3>
+<div class="flex gap-2">
+<button class="p-2 rounded-lg border border-outline-variant hover:bg-surface-container-low">
+<span class="material-symbols-outlined">filter_list</span>
+</button>
+<button class="p-2 rounded-lg border border-outline-variant hover:bg-surface-container-low">
+<span class="material-symbols-outlined">download</span>
+</button>
+</div>
+</div>
+<!-- History Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+<!-- History Main Card -->
+<div class="md:col-span-3 glass-card inner-glow rounded-[24px] overflow-hidden">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low border-b border-outline-variant">
+<th class="px-6 py-4 font-label-bold text-on-surface-variant uppercase text-[12px] tracking-widest">ID Pesanan</th>
+<th class="px-6 py-4 font-label-bold text-on-surface-variant uppercase text-[12px] tracking-widest">Daftar Obat</th>
+<th class="px-6 py-4 font-label-bold text-on-surface-variant uppercase text-[12px] tracking-widest">Tanggal</th>
+<th class="px-6 py-4 font-label-bold text-on-surface-variant uppercase text-[12px] tracking-widest text-right">Total</th>
+<th class="px-6 py-4 font-label-bold text-on-surface-variant uppercase text-[12px] tracking-widest text-center">Status</th>
+</tr>
+</thead>
+<tbody>
+<tr class="border-b border-outline-variant/50 hover:bg-surface-container-low transition-colors">
+<td class="px-6 py-6 font-bold text-primary">#RX-88210</td>
+<td class="px-6 py-6">
+<p class="font-bold">Paket Anti-Inflamasi</p>
+<p class="text-label-sm text-on-surface-variant">Dexamethasone, Ibuprofen</p>
+</td>
+<td class="px-6 py-6 text-on-surface-variant">12 Okt 2023</td>
+<td class="px-6 py-6 text-right font-bold">Rp 215.000</td>
+<td class="px-6 py-6 text-center">
+<span class="px-3 py-1 rounded-full bg-green-100 text-green-700 text-label-sm font-bold border border-green-200">Selesai</span>
+</td>
+</tr>
+<tr class="border-b border-outline-variant/50 hover:bg-surface-container-low transition-colors">
+<td class="px-6 py-6 font-bold text-primary">#RX-87955</td>
+<td class="px-6 py-6">
+<p class="font-bold">Multivitamin Gold</p>
+<p class="text-label-sm text-on-surface-variant">Vit C 1000mg, Zinc, Vit D3</p>
+</td>
+<td class="px-6 py-6 text-on-surface-variant">28 Sep 2023</td>
+<td class="px-6 py-6 text-right font-bold">Rp 450.000</td>
+<td class="px-6 py-6 text-center">
+<span class="px-3 py-1 rounded-full bg-green-100 text-green-700 text-label-sm font-bold border border-green-200">Selesai</span>
+</td>
+</tr>
+<tr class="border-b border-outline-variant/50 hover:bg-surface-container-low transition-colors">
+<td class="px-6 py-6 font-bold text-primary">#RX-87112</td>
+<td class="px-6 py-6">
+<p class="font-bold">Obat Maag Akut</p>
+<p class="text-label-sm text-on-surface-variant">Omeprazole, Antasida Doen</p>
+</td>
+<td class="px-6 py-6 text-on-surface-variant">15 Agu 2023</td>
+<td class="px-6 py-6 text-right font-bold">Rp 98.000</td>
+<td class="px-6 py-6 text-center">
+<span class="px-3 py-1 rounded-full bg-green-100 text-green-700 text-label-sm font-bold border border-green-200">Selesai</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Stats/Summary Card -->
+<div class="md:col-span-1 space-y-6">
+<div class="glass-card inner-glow p-6 rounded-[24px] electric-gradient text-white">
+<h4 class="text-label-bold opacity-80 uppercase mb-4">Total Pengeluaran</h4>
+<p class="text-display-lg font-bold mb-2">Rp 1.2M</p>
+<p class="text-label-sm opacity-80">Akumulasi tahun 2023</p>
+<div class="mt-6 pt-6 border-t border-white/20">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+<span class="text-label-bold">Asuransi Aktif</span>
+</div>
+<p class="text-label-sm opacity-80">Prudential Health Platinum</p>
+</div>
+</div>
+<div class="glass-card inner-glow p-6 rounded-[24px]">
+<h4 class="font-headline-md text-on-surface mb-4">Butuh Bantuan?</h4>
+<p class="text-body-md text-on-surface-variant mb-4">Hubungi apoteker kami untuk konsultasi dosis.</p>
+<button class="w-full py-3 rounded-xl border-2 border-primary text-primary font-bold hover:bg-primary-container/10 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">chat</span> Chat Apoteker
+                                </button>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Footer -->
+<footer class="w-full py-xl px-gutter bg-surface-container-highest border-t border-outline-variant flex flex-col md:flex-row justify-between items-center gap-md mt-16">
+<div class="flex flex-col items-center md:items-start gap-2">
+<p class="text-label-md font-bold text-primary">PastiSehat</p>
+<p class="font-body-md text-on-surface-variant">© 2024 RS Louis Surabaya. Terakreditasi KARS.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-gutter">
+<a class="text-on-surface-variant hover:underline font-body-md" href="#">Kebijakan Privasi</a>
+<a class="text-on-surface-variant hover:underline font-body-md" href="#">Syarat &amp; Ketentuan</a>
+<a class="text-on-surface-variant hover:underline font-body-md" href="#">Pusat Bantuan</a>
+<a class="text-on-surface-variant hover:underline font-body-md" href="#">Kontak Kami</a>
+</div>
+</footer>
+</main>
+</div>
+</body></html>
