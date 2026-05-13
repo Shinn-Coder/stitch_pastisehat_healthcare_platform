@@ -8,7 +8,7 @@ import {
   Bell, UserCircle, User, Star, ImageIcon, Mic, Send,
   MicOff, X, CheckCircle, AlertCircle, Loader2
 } from "lucide-react";
-import router from "next/router";
+import { useRouter } from "next/navigation";
 
 // ─── Types ────────────────────────────────────────────────────
 type MessageRole = "user" | "ai";
@@ -103,6 +103,7 @@ function AppointmentToast({ data, onClose }: { data: AppointmentData; onClose: (
 
 // ─── Main Component ───────────────────────────────────────────
 export default function Cici() {
+  const router = useRouter();
   const [messages, setMessages] = useState<Message[]>([
     {
       id: "init",
