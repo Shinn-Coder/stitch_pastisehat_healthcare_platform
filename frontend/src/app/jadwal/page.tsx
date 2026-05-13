@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { 
+import {
   Stethoscope, LayoutDashboard, History, Bot, HelpCircle, Calendar, Settings, LogOut,
   Search, Bell, UserCircle, ChevronRight, CalendarDays, Plus, Clock, MapPin, Syringe,
   Microscope, Download, Smile, AlertTriangle, Check, Menu, FileText, ChevronLeft,
@@ -107,9 +107,9 @@ export default function JadwalPage() {
         <header className="sticky top-0 z-30 bg-surface/80 backdrop-blur-md h-16 border-b border-outline-variant px-8 flex justify-between items-center w-full">
           <div className="flex-1 max-w-md relative hidden md:block">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-outline w-4 h-4" />
-            <input 
-              type="text" 
-              placeholder="Cari jadwal atau dokter..." 
+            <input
+              type="text"
+              placeholder="Cari jadwal atau dokter..."
               className="w-full bg-surface-container-low border-none rounded-full pl-10 pr-4 py-2 text-sm focus:ring-2 focus:ring-primary outline-none"
             />
           </div>
@@ -238,11 +238,11 @@ export default function JadwalPage() {
                           </div>
                           <div className="flex items-center gap-4 text-on-surface-variant mt-3">
                             <span className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-tight">
-                              <Calendar className="w-3.5 h-3.5" /> 
+                              <Calendar className="w-3.5 h-3.5" />
                               {new Date(apt.date).toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' })}
                             </span>
                             <span className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-tight">
-                              <Clock className="w-3.5 h-3.5" /> 
+                              <Clock className="w-3.5 h-3.5" />
                               {new Date(apt.date).toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' })} WIB
                             </span>
                             <button className="ml-auto text-primary text-[10px] font-bold uppercase tracking-wider hover:underline flex items-center gap-1">

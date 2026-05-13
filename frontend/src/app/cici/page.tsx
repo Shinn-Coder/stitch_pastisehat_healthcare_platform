@@ -8,6 +8,7 @@ import {
   Bell, UserCircle, User, Star, ImageIcon, Mic, Send,
   MicOff, X, CheckCircle, AlertCircle, Loader2
 } from "lucide-react";
+import router from "next/router";
 
 // ─── Types ────────────────────────────────────────────────────
 type MessageRole = "user" | "ai";
