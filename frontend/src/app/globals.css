@@ -109,18 +109,22 @@
     border: 1px solid rgba(255, 255, 255, 0.4);
     box-shadow: 0 8px 32px 0 rgba(30, 27, 75, 0.04);
   }
+
   .inner-glow {
     box-shadow: inset 1px 1px 0px rgba(255, 255, 255, 0.4);
   }
+
   .glass-bubble-ai {
     background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.5);
     box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.03);
   }
+
   .active-glow {
     box-shadow: 0 0 15px rgba(18, 74, 240, 0.3);
   }
+
   .gradient-primary {
     background: linear-gradient(135deg, #0040e0 0%, #4648d4 100%);
   }
