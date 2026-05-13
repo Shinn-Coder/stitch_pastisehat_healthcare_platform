@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import multer from 'multer';
 import { PrismaClient } from '@prisma/client';
 import { GoogleGenerativeAI, Content, Part } from '@google/generative-ai';
+import bcrypt from 'bcryptjs';
 
 dotenv.config();
 
@@ -198,6 +199,61 @@ app.get('/api/appointments/:userId', async (req: Request, res: Response) => {
 
 app.get('/health', (_req: Request, res: Response) => {
   res.json({ status: 'ok', service: 'pastisehat-backend', version: '2.0.0' });
+});
+
+// AUTH ENDPOINTS
+app.post('/api/auth/register', async (req: Request, res: Response) => {
+  try {
+    const { email, password, name, dob, weight, height, medicalHistory, address } = req.body;
+
+    const existingUser = await prisma.user.findUnique({ where: { email } });
+    if (existingUser) {
+      return res.status(400).json({ error: 'Email sudah terdaftar' });
+    }
+
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    const user = await prisma.user.create({
+      data: {
+        email,
+        password: hashedPassword,
+        fullName: name,
+        dob: new Date(dob),
+        weight: parseFloat(weight) || null,
+        height: parseFloat(height) || null,
+        medicalHistory: Array.isArray(medicalHistory) ? medicalHistory : [],
+        address: address || 'Tidak ada alamat',
+      },
+    });
+
+    const { password: _, ...userWithoutPassword } = user;
+    return res.json({ user: userWithoutPassword });
+  } catch (error) {
+    console.error('[/api/auth/register] Error:', error);
+    return res.status(500).json({ error: 'Gagal melakukan registrasi' });
+  }
+});
+
+app.post('/api/auth/login', async (req: Request, res: Response) => {
+  try {
+    const { email, password } = req.body;
+
+    const user = await prisma.user.findUnique({ where: { email } });
+    if (!user) {
+      return res.status(401).json({ error: 'Email atau password salah' });
+    }
+
+    const isPasswordValid = await bcrypt.compare(password, user.password);
+    if (!isPasswordValid) {
+      return res.status(401).json({ error: 'Email atau password salah' });
+    }
+
+    const { password: _, ...userWithoutPassword } = user;
+    return res.json({ user: userWithoutPassword });
+  } catch (error) {
+    console.error('[/api/auth/login] Error:', error);
+    return res.status(500).json({ error: 'Gagal melakukan login' });
+  }
 });
 
 app.listen(PORT, () => {

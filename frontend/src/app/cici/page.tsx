@@ -27,7 +27,6 @@ interface AppointmentData {
 }
 
 // Dummy user ID (nanti diganti dengan auth session yang nyata)
-const DEMO_USER_ID = "demo-user-pastisehat-001";
 const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || "http://localhost:8000";
 
 // ─── Komponen Pesan AI ────────────────────────────────────────
@@ -118,6 +117,18 @@ export default function Cici() {
   const [imagePreview, setImagePreview] = useState<string | null>(null);
   const [appointmentToast, setAppointmentToast] = useState<AppointmentData | null>(null);
   const [detectedSymptoms, setDetectedSymptoms] = useState<string[]>([]);
+  const [userId, setUserId] = useState<string | null>(null);
+  const [authLoading, setAuthLoading] = useState(true);
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem('user');
+    if (!storedUser) {
+      router.push('/login');
+    } else {
+      setUserId(JSON.parse(storedUser).id);
+      setAuthLoading(false);
+    }
+  }, [router]);
 
   const chatEndRef = useRef<HTMLDivElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -163,7 +174,7 @@ export default function Cici() {
 
       const formData = new FormData();
       formData.append("message", teks);
-      formData.append("userId", DEMO_USER_ID);
+      formData.append("userId", userId || '');
       formData.append("history", JSON.stringify(historyForApi));
       if (gambar) formData.append("image", gambar);
 
@@ -290,6 +301,16 @@ export default function Cici() {
   };
 
   // ─── Render ────────────────────────────────────────────────
+  if (authLoading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-background">
+        <div className="animate-spin w-10 h-10 border-4 border-primary border-t-transparent rounded-full"></div>
+      </div>
+    );
+  }
+
+  if (!userId) return null;
+
   return (
     <div className="flex h-screen overflow-hidden selection:bg-primary-fixed selection:text-on-primary-fixed">
 
@@ -319,7 +340,7 @@ export default function Cici() {
           <Link className="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors" href="/jadwal">
             <History className="w-5 h-5" /><span className="font-label-md font-bold">Riwayat</span>
           </Link>
-          <Link className="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors" href="#">
+          <Link className="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors" href="/apotek">
             <Stethoscope className="w-5 h-5" /><span className="font-label-md font-bold">Apotek</span>
           </Link>
           <Link className="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors" href="#">
@@ -335,12 +356,15 @@ export default function Cici() {
             <Calendar className="w-5 h-5" />
             Booking Sekarang
           </button>
-          <Link className="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors" href="#">
+          <Link className="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors" href="/profile">
             <Settings className="w-5 h-5" /><span className="font-label-md font-bold">Pengaturan</span>
           </Link>
-          <Link className="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-colors" href="#">
+          <button 
+            onClick={() => { localStorage.removeItem('user'); router.push('/login'); }}
+            className="w-full flex items-center gap-3 px-4 py-3 text-error hover:bg-error/10 rounded-lg transition-colors"
+          >
             <LogOut className="w-5 h-5" /><span className="font-label-md font-bold">Keluar</span>
-          </Link>
+          </button>
         </div>
       </aside>
 
